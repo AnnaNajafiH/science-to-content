@@ -1,7 +1,10 @@
 import { TrendingUp, Clock } from "lucide-react";
 
+type TrendHeaderProps = {
+  onRefresh: () => void;
+};
 
-function TrendHeader({ onRefresh }: { onRefresh: () => void }) {
+const TrendHeader: React.FC<TrendHeaderProps> = ({ onRefresh }) => {
   return (
     <div className="mb-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
@@ -24,6 +27,6 @@ function TrendHeader({ onRefresh }: { onRefresh: () => void }) {
       </div>
     </div>
   );
-}
+};
 
-export default TrendHeader
+export default TrendHeader;

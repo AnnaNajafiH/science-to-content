@@ -5,7 +5,7 @@ import type { Trend } from "../../types";
 export type TrendsState = {
   trends: Trend[];
   loading: boolean;
-  filter: "all" | "hot" | "rising";
+  filter: "all" | "hot" | "rising" | "stable";
   selectedTrend: Trend | null;
   error?: string | null;
 };

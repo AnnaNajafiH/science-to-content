@@ -11,7 +11,7 @@ export const mockTrends: Trend[] = [
     score: 96,
     velocity: "hot",
     detectedAt: "2025-11-21T12:00:00Z",
-    relatedPosts: [mockSocialPosts[4]],
+    relatedPosts: [mockSocialPosts[4],mockSocialPosts[5], mockSocialPosts[6]],
     keywords: [
       "SPF daily",
       "sunscreen",

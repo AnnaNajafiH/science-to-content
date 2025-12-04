@@ -1,17 +1,17 @@
 import { TrendingUp, Flame, ArrowUp, Clock, Hash, Eye } from "lucide-react";
 import type { Trend } from "../../types";
 
-type Props = {
+type TrendCardProps = {
   trend: Trend;
   onCreatePost?: (trendId: string) => void;
   onViewDetails?: (trend: Trend) => void;
 };
 
-export default function TrendCard({
+const TrendCard: React.FC<TrendCardProps> = ({
   trend,
   onCreatePost,
   onViewDetails,
-}: Props) {
+}) => {
   const getVelocityIcon = (velocity: Trend["velocity"]) => {
     switch (velocity) {
       case "hot":
@@ -90,46 +90,47 @@ export default function TrendCard({
           {trend.relatedPosts.length} related posts
         </span>
         <div className="flex items-center gap-2 flex-wrap">
-              <button
-              onClick={(e) => {
-                e.stopPropagation();
-                if (onCreatePost) onCreatePost(trend.id);
-              }}
-              className={`${baseBtn} ${hotBg}`}
-              aria-label={
-                isHot
-                  ? `Create post urgently for ${trend.name}`
-                  : `Create post for ${trend.name}`
-              }
-            >
-              {isHot ? (
-                <span className="flex items-center gap-1.5">
-                  <span>Act Now</span>
-                </span>
-              ) : (
-                <span>Create Post</span>
-              )}
-            </button>
-
-            {isHot && (
-              <span className="urgent-badge bg-red-50 text-red-700 whitespace-nowrap px-2 py-1 text-xs rounded">
-                🔥 High priority
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              if (onCreatePost) onCreatePost(trend.id);
+            }}
+            className={`${baseBtn} ${hotBg}`}
+            aria-label={
+              isHot
+                ? `Create post urgently for ${trend.name}`
+                : `Create post for ${trend.name}`
+            }
+          >
+            {isHot ? (
+              <span className="flex items-center gap-1.5">
+                <span>Act Now</span>
               </span>
+            ) : (
+              <span>Create Post</span>
             )}
+          </button>
 
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                if (onViewDetails) onViewDetails(trend);
-              }}
-              className="text-xs text-beiersdorf-blue font-medium hover:underline flex items-center gap-1 whitespace-nowrap"
-            >
-              <Eye className="w-3 h-3" />
-              View Details
-            </button>
-          
+          {isHot && (
+            <span className="urgent-badge bg-red-50 text-red-700 whitespace-nowrap px-2 py-1 text-xs rounded">
+              🔥 High priority
+            </span>
+          )}
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              if (onViewDetails) onViewDetails(trend);
+            }}
+            className="text-xs text-beiersdorf-blue font-medium hover:underline flex items-center gap-1 whitespace-nowrap"
+          >
+            <Eye className="w-3 h-3" />
+            View Details
+          </button>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default TrendCard;

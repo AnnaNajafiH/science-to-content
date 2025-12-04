@@ -5,7 +5,10 @@ interface TrendDetailProps {
   setSelectedTrend: (trend: Trend | null) => void;
 }
 
-function TrendDetail({ selectedTrend, setSelectedTrend }: TrendDetailProps) {
+const TrendDetail: React.FC<TrendDetailProps> = ({
+  selectedTrend,
+  setSelectedTrend,
+}) => {
   return (
     <div
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
@@ -101,6 +104,6 @@ function TrendDetail({ selectedTrend, setSelectedTrend }: TrendDetailProps) {
       </div>
     </div>
   );
-}
+};
 
 export default TrendDetail;

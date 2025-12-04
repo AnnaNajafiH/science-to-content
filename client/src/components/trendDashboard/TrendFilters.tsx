@@ -1,10 +1,10 @@
 interface TrendFiltersProps {
-  filter: "all" | "hot" | "rising";
-  setFilter: (filter: "all" | "hot" | "rising") => void;
+  filter: "all" | "hot" | "rising" | "stable";
+  setFilter: (filter: "all" | "hot" | "rising" | "stable") => void;
 }
 
-function TrendFilters({ filter, setFilter }: TrendFiltersProps) {
-  const filtered = ["all", "hot", "rising"] as const;
+const TrendFilters: React.FC<TrendFiltersProps> = ({ filter, setFilter }) => {
+  const filtered = ["all", "hot", "rising", "stable"] as const;
   return (
     <div className="flex flex-wrap gap-2">
       {filtered.map((filterOption) => (
@@ -22,6 +22,6 @@ function TrendFilters({ filter, setFilter }: TrendFiltersProps) {
       ))}
     </div>
   );
-}
+};
 
 export default TrendFilters;
