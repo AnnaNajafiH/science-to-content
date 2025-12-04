@@ -1,7 +1,7 @@
 // provides context + state logic to app
 
 import { useReducer, useCallback, useEffect } from "react";
-import { contentService } from "../../services/contentService";
+import { getTrends } from "../../services/trendService";
 import { trendsReducer, initialTrendsState } from "./trendReducer";
 import { TrendsContext } from "./TrendsContext";
 import type { TrendsState } from "./trendReducer";
@@ -16,7 +16,7 @@ export const TrendsProvider: React.FC<{ children: React.ReactNode }> = ({
     dispatch({ type: "LOAD_START" });
 
     try {
-      const data = await contentService.getTrends();
+      const data = await getTrends();
       dispatch({ type: "LOAD_SUCCESS", payload: data });
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : String(err);
