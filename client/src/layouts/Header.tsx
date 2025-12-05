@@ -10,13 +10,39 @@ import {
   X,
 } from "lucide-react";
 import { NavLink, Link } from "react-router-dom";
+import Logo from "./Logo";
 
 const navigation = [
-  { id: "trends", name: "Trend Detection", icon: TrendingUp, color: "text-purple-600" },
-  { id: "generate", name: "Content Generator", icon: Sparkles, color: "text-blue-600" },
-  { id: "review", name: "Review Queue", icon: CheckCircle, color: "text-green-600" },
-  { id: "internal", name: "Internal Briefs", icon: FileText, color: "text-orange-600" },
-  { id: "analytics", name: "Analytics", icon: BarChart3, color: "text-pink-600" },
+  {
+    id: "trends",
+    name: "Trend Detection",
+    icon: TrendingUp,
+    color: "text-purple-600",
+  },
+  {
+    id: "generate",
+    name: "Content Generator",
+    icon: Sparkles,
+    color: "text-blue-600",
+  },
+  {
+    id: "review",
+    name: "Review Queue",
+    icon: CheckCircle,
+    color: "text-green-600",
+  },
+  {
+    id: "internal",
+    name: "Internal Briefs",
+    icon: FileText,
+    color: "text-orange-600",
+  },
+  {
+    id: "analytics",
+    name: "Analytics",
+    icon: BarChart3,
+    color: "text-pink-600",
+  },
 ];
 
 const Header: React.FC = () => {
@@ -25,7 +51,9 @@ const Header: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 lg:px-8">
       <div className="flex justify-between items-center h-16">
-        <Link to="/">Logo</Link>
+        <Link to="/">
+          <Logo />
+        </Link>
 
         {/* Mobile menu button */}
         <button

@@ -20,7 +20,7 @@ const Logo: React.FC = () => {
           </span>
           <div className="w-full h-px bg-gray-300 my-1"></div>
           <span className="text-[7px] font-medium text-beiersdorf-blue uppercase tracking-widest opacity-70">
-            Beiersdorf Studio
+            science to content
           </span>
         </div>
       </div>
