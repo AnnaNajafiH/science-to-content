@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./layouts/Layout";
-import { TrendsProvider } from "./Contexts/trendDashboardContext/TrendsProvider";
+import { TrendsProvider } from "./Contexts/trendDashboardContext/trendProvider";
 import TrendDashboard from "./pages/TrendDashboard";
 import ContentCreator from "./pages/ContentCreator";
 import ReviewQueue from "./pages/ReviewQueue";
