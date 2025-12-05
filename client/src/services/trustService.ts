@@ -1,13 +1,13 @@
 export function getTrends():
-  | import("../types/index").Trend[]
-  | PromiseLike<import("../types/index").Trend[]> {
+  | import("../types").Trend[]
+  | PromiseLike<import("../types").Trend[]> {
   throw new Error("Function not implemented.");
 }
 export function getTrendsById(
   _id: string
 ):
-  | import("../types/index").Trend
-  | PromiseLike<import("../types/index").Trend | null>
+  | import("../types").Trend
+  | PromiseLike<import("../types").Trend | null>
   | null {
   void _id;
   throw new Error("Function not implemented.");
@@ -16,8 +16,8 @@ export function getTrendsById(
 export function getTrustScore(
   _contentId: string
 ):
-  | import("../types/index").TrustScore
-  | PromiseLike<import("../types/index").TrustScore> {
+  | import("../types").TrustScore
+  | PromiseLike<import("../types").TrustScore> {
   void _contentId;
   throw new Error("Function not implemented.");
 }

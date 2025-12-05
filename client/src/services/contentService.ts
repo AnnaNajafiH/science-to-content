@@ -5,7 +5,7 @@ import type {
   RDDocument,
   TrustScore,
 } from "../types/index";
-import * as trends from "./trustService";
+import * as trends from "./trendService";
 import * as generation from "./generationService";
 import * as rd from "./rdService";
 import * as brief from "./briefService";
@@ -13,7 +13,6 @@ import * as trust from "./trustService";
 
 // Facade preserving the original contentService API while delegating to
 // smaller, page-focused service modules.
-
 class ContentEcosystemService {
   // Trend Detection
   async getTrends(): Promise<Trend[]> {
@@ -21,7 +20,7 @@ class ContentEcosystemService {
   }
 
   async getTrendById(id: string): Promise<Trend | null> {
-    return trends.getTrendsById(id);
+    return trends.getTrendById(id);
   }
 
   // Content Generation
