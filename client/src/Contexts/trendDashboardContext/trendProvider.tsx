@@ -1,15 +1,14 @@
 // provides context + state logic to app
 
-import { useReducer, useCallback, useEffect } from "react";
+import React, { useReducer, useCallback, useEffect } from "react";
 import { getTrends } from "../../services/trendService";
 import { trendsReducer, initialTrendsState } from "./trendReducer";
-import { TrendsContext } from "./TrendsContext";
+import { TrendsContext } from "./trendContext";
+import type { TrendsContextValue } from "./trendContext";
 import type { TrendsState } from "./trendReducer";
 import type { Trend } from "../../types";
 
-export const TrendsProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const TrendsProvider: React.FC<{ children: React.ReactNode }> = ({children}) => {
   const [state, dispatch] = useReducer(trendsReducer, initialTrendsState);
 
   const loadTrends = useCallback(async () => {
@@ -38,10 +37,15 @@ export const TrendsProvider: React.FC<{ children: React.ReactNode }> = ({
     loadTrends();
   }, [loadTrends]);
 
+  const value: TrendsContextValue = {
+    state,
+    loadTrends,
+    setFilter,
+    selectTrend,
+  };
+
   return (
-    <TrendsContext.Provider
-      value={{ state, loadTrends, setFilter, selectTrend }}
-    >
+    <TrendsContext.Provider value={value}>
       {children}
     </TrendsContext.Provider>
   );

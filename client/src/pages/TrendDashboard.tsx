@@ -1,6 +1,6 @@
 import React, { useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTrends } from "../Contexts/trendDashboardContext/useTrends.ts";
+import { useTrends } from "../Contexts/trendDashboardContext/useTrend.ts";
 import TrendHeader from "../components/trendDashboard/TrendHeader.tsx";
 import TrendFilters from "../components/trendDashboard/TrendFilters.tsx";
 import TrendList from "../components/trendDashboard/TrendList.tsx";

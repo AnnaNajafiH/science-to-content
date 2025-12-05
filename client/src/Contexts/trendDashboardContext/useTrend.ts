@@ -1,7 +1,7 @@
 // custom hook to consume context
 
 import { useContext } from "react";
-import { TrendsContext } from "./TrendsContext";
+import { TrendsContext } from "./trendContext";
 
 export function useTrends() {
   const ctx = useContext(TrendsContext);
