@@ -39,7 +39,7 @@ function ContentGenerator() {
     <div className="space-y-6">
       {showConfetti && <Confetti />}
 
-      <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+      <div className="bg-white rounded-xl shadow-sm p-4 lg:p-6 border border-gray-200">
         <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2 mb-2">
           <Sparkles className="w-7 h-7 text-purple-600" />
           Content Generator
