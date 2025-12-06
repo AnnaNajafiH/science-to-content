@@ -1,30 +1,33 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import { TrendsProvider } from "./Contexts/trendDashboardContext/trendProvider";
-import TrendDashboard from "./pages/TrendDashboard";
-import ContentCreator from "./pages/ContentGenerator";
-import ReviewQueue from "./pages/ReviewQueue";
-import InternalBriefGenerator from "./pages/InternalBriefGenerator";
-import Analytics from "./pages/Analytics";
+import TrendDashboard from "./pages/TrendDashboardPage";
+import ContentCreator from "./pages/ContentGeneratorPage";
+import ReviewQueue from "./pages/ReviewQueuePage";
+import InternalBriefGenerator from "./pages/InternalBriefGeneratorPage";
+import Analytics from "./pages/AnalyticsPage";
 import { ContentGeneratorProvider } from "./Contexts/contentGenerator/contentProvider";
+import { ReviewProvider } from "./Contexts/reviewQueueContext/reviewProvider";
+
 
 function App() {
   return (
-    <ContentGeneratorProvider>
-      <TrendsProvider>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<TrendDashboard />} />
-            <Route path="generate" element={<ContentCreator />} />
-            <Route path="review" element={<ReviewQueue />} />
-            <Route path="internal" element={<InternalBriefGenerator />} />
-            <Route path="analytics" element={<Analytics />} />
-
-            <Route path="*" element={<TrendDashboard />} />
-          </Route>
-        </Routes>
-      </TrendsProvider>
-    </ContentGeneratorProvider>
+    <TrendsProvider>
+      <ContentGeneratorProvider>
+        <ReviewProvider>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route index element={<TrendDashboard />} />
+              <Route path="generate" element={<ContentCreator />} />
+              <Route path="review" element={<ReviewQueue />} />
+              <Route path="internal" element={<InternalBriefGenerator />} />
+              <Route path="analytics" element={<Analytics />} />
+              <Route path="*" element={<TrendDashboard />} />
+            </Route>
+          </Routes>
+        </ReviewProvider>
+      </ContentGeneratorProvider>
+    </TrendsProvider>
   );
 }
 

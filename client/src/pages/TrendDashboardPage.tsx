@@ -57,7 +57,8 @@ const TrendDashboard: React.FC<TrendDashboardProps> = ({ onCreatePost }) => {
     <div className="space-y-6">
 
       {/* Header */}
-      <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 border border-gray-200">
+      <div className="bg-white rounded-xl shadow-sm p-4 lg:p-6 border border-gray-200">
+
         <TrendHeader onRefresh={loadTrends} />
         <TrendFilters filter={filter} setFilter={setFilter} />
 
