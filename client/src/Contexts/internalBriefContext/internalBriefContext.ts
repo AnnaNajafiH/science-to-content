@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import type { InternalBriefState } from "./InternalBriefReducer";
+import type { InternalBriefState } from "./internalBriefReducer";
 
 export type InternalBriefContextValue = InternalBriefState & {
   loadRDDocuments: () => Promise<void>;

@@ -8,7 +8,7 @@ import InternalBriefGenerator from "./pages/InternalBriefGeneratorPage";
 import Analytics from "./pages/AnalyticsPage";
 import { ContentGeneratorProvider } from "./Contexts/contentGenerator/contentProvider";
 import { ReviewProvider } from "./Contexts/reviewQueueContext/reviewProvider";
-import { InternalBriefProvider } from "./Contexts/internalBriefContext/InternalBriefProvider";
+import { InternalBriefProvider } from "./Contexts/internalBriefContext/internalBriefProvider";
 
 function App() {
   return (

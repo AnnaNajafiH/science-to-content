@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useReducer } from "react";
-import { initialInternalBriefState, internalBriefReducer } from "./InternalBriefReducer";
+import { initialInternalBriefState, internalBriefReducer } from "./internalBriefReducer";
 import{InternalBriefContext, type InternalBriefContextValue} from "./internalBriefContext";
 import { contentService } from "../../services/contentService";
 

@@ -1,25 +1,34 @@
-export function generateInternalBrief(
-  _rdDocumentId: string,
-  _audience: string
-):
-  | import("../types").InternalBrief
-  | PromiseLike<import("../types").InternalBrief> {
-  void _rdDocumentId;
-  void _audience;
-  throw new Error("Function not implemented.");
+import { mockInternalBriefs } from "../data/internalBriefs";
+import type { InternalBrief } from "../types";
+
+export async function generateInternalBrief(
+  rdDocumentId: string,
+  audience: string
+): Promise<InternalBrief> {
+  // Minimal mock implementation: derive a brief from the first mock and override
+  const base = mockInternalBriefs[0];
+  const generated: InternalBrief = {
+    ...base,
+    id: `ib-${Date.now()}`,
+    rdDocumentId,
+    targetAudience: audience,
+    generatedAt: new Date().toISOString(),
+    title: `Generated Brief for ${rdDocumentId}`,
+  };
+  return generated;
 }
 
-export function sendBriefByEmail(
-  _briefId: string,
-  _recipients: string[]
-): { ok: boolean } | PromiseLike<{ ok: boolean }> {
-  void _briefId;
-  void _recipients;
-  throw new Error("Function not implemented.");
+export async function sendBriefByEmail(
+  briefId: string,
+  recipients: string[]
+): Promise<{ ok: boolean }> {
+  // Mock sending - accept and return success
+  void briefId;
+  void recipients;
+  return { ok: true };
 }
 
-export function getInternalBriefs():
-  | import("../types").InternalBrief[]
-  | PromiseLike<import("../types").InternalBrief[]> {
-    throw new Error("Function not implemented.");
+export async function getInternalBriefs(): Promise<InternalBrief[]> {
+  // Return the mock briefs
+  return mockInternalBriefs;
 }
