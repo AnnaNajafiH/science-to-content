@@ -1,0 +1,18 @@
+import { createContext } from "react";
+import type { InternalBriefState } from "./InternalBriefReducer";
+
+export type InternalBriefContextValue = InternalBriefState & {
+  loadRDDocuments: () => Promise<void>;
+  loadBriefs: () => Promise<void>;
+  generateBrief: () => Promise<void>;
+  openEmailModal: () => void;
+  closeEmailModal: () => void;
+  exportBrief: () => void;
+  sendEmail: () => Promise<void>;
+  toggleShareMenu: () => void;
+  setSelectedDoc: (id: string) => void;
+  setTargetAudience: (s: string) => void;
+  setEmailRecipients: (s: string) => void;
+};
+
+export const InternalBriefContext = createContext<InternalBriefContextValue | undefined>(undefined);
