@@ -40,6 +40,9 @@ export const InternalBriefProvider: React.FC<{children:React.ReactNode}> = ({ ch
     try{
         const brief = await contentService.generateInternalBrief(state.selectedDoc, state.targetAudience);
         dispatch({type:"setGeneratedBrief", payload: brief});
+        // show confetti briefly when a brief is successfully generated
+        dispatch({ type: "setConfettiVisible", payload: true });
+        setTimeout(() => dispatch({ type: "setConfettiVisible", payload: false }), 2500);
     } catch (error) {
         console.error("Failed to generate Internal Brief", error);
     } finally {
@@ -102,6 +105,10 @@ export const InternalBriefProvider: React.FC<{children:React.ReactNode}> = ({ ch
         dispatch({type:"setEmailRecipients", payload: s});
     }, []);
 
+        const setConfettiVisibleCb = useCallback((v: boolean) => {
+            dispatch({ type: "setConfettiVisible", payload: v });
+        }, []);
+
     const value: InternalBriefContextValue = {
         ...state,
         loadRDDocuments,
@@ -115,6 +122,8 @@ export const InternalBriefProvider: React.FC<{children:React.ReactNode}> = ({ ch
         setSelectedDoc: setSelectedDocCb,
         setTargetAudience: setTargetAudienceCb,
         setEmailRecipients: setEmailRecipientsCb,
+        showConfetti: state.confettiVisible,
+        setConfettiVisible: setConfettiVisibleCb,
     };
     return (
         <InternalBriefContext.Provider value={value}>

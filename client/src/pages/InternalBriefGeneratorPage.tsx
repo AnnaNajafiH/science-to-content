@@ -5,12 +5,15 @@ import PreviousBriefs from "../components/InternalBriefGenerator/PreviousBriefs"
 import { useInternalBrief } from "../Contexts/internalBriefContext/useInternalBrief";
 import BriefEmailModal from "../components/InternalBriefGenerator/BriefEmailModal";
 import BriefEmail from "../components/InternalBriefGenerator/BriefEmail";
+import ConfettiCanvas from "../components/common/ConfettiCanvas";
 
 const InternalBriefGeneratorPage: React.FC = () => {
-  const { generatedBrief, generating, emailModalOpen } = useInternalBrief();
+  const {showConfetti, generatedBrief, generating, emailModalOpen } = useInternalBrief();
 
   return (
     <div className="space-y-6">
+  {showConfetti && <ConfettiCanvas />}
+      
       <BriefHeader />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

@@ -13,6 +13,8 @@ export type InternalBriefContextValue = InternalBriefState & {
   setSelectedDoc: (id: string) => void;
   setTargetAudience: (s: string) => void;
   setEmailRecipients: (s: string) => void;
+  showConfetti: boolean;
+  setConfettiVisible: (v: boolean) => void;
 };
 
 export const InternalBriefContext = createContext<InternalBriefContextValue | undefined>(undefined);

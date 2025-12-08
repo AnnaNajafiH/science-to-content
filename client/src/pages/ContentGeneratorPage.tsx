@@ -5,7 +5,7 @@ import ContentTypeSelector from "../components/contentGenerator/ContentTypeSelec
 import GenerateButton from "../components/contentGenerator/GenerateButton.tsx";
 import OutputPanel from "../components/contentGenerator/OutputPanel.tsx";
 import PreviewModal from "../components/contentGenerator/PreviewModal.tsx";
-import Confetti from "../components/common/Confetti.tsx";
+import ConfettiCanvas from "../components/common/ConfettiCanvas.tsx";
 
 function ContentGenerator() {
   const {
@@ -32,12 +32,12 @@ function ContentGenerator() {
     { id: "reel", name: "Reel Caption", icon: Play },
     { id: "video-script", name: "Video Script", icon: FileVideo },
   ];
-  
+
   const selectedTrend = trends.find((t) => t.id === selectedTrendId);
 
   return (
     <div className="space-y-6">
-      {showConfetti && <Confetti />}
+      {showConfetti && <ConfettiCanvas/>}
 
       <div className="bg-white rounded-xl shadow-sm p-4 lg:p-6 border border-gray-200">
         <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2 mb-2">

@@ -12,6 +12,7 @@ export type InternalBriefState = {
   emailSending: boolean;
   emailSentAck: string | null;
   shareMenuOpen: boolean;
+  confettiVisible: boolean;
 };
 
 export type InternalBriefAction =
@@ -26,7 +27,8 @@ export type InternalBriefAction =
   | { type: "setEmailRecipients"; payload: string }
   | { type: "setEmailSending"; payload: boolean }
   | { type: "setEmailSentAck"; payload: string | null }
-  | { type: "setShareMenuOpen"; payload: boolean };
+  | { type: "setShareMenuOpen"; payload: boolean }
+  | { type: "setConfettiVisible"; payload: boolean }
 
 export const initialInternalBriefState: InternalBriefState = {
   rdDocuments: [],
@@ -40,6 +42,7 @@ export const initialInternalBriefState: InternalBriefState = {
   emailSending: false,
   emailSentAck: null,
   shareMenuOpen: false,
+  confettiVisible: false,
 };
 
 export function internalBriefReducer(
@@ -69,6 +72,8 @@ export function internalBriefReducer(
       return { ...state, emailSentAck: action.payload };
     case "setShareMenuOpen":
       return { ...state, shareMenuOpen: action.payload };
+    case "setConfettiVisible":
+      return { ...state, confettiVisible: action.payload };
     default:
       return state;
   }
