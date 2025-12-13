@@ -4,9 +4,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from sqlmodel import Session
 
-from app.database import get_session
-from app.models import Trend, TrendMention, TrendCategory
-from app.schemas import TrendResponse, TrendListResponse, TrendCreate
+from ..database import get_session
+from ..models import Trend, TrendMention, TrendCategory
+from ..schemas import TrendResponse, TrendListResponse, TrendCreate
 from datetime import datetime, timedelta
 
 router = APIRouter()

@@ -1,7 +1,7 @@
 """LLM service for OpenAI integration."""
 import json
 import httpx
-from app.config import settings
+from server.app.config import settings
 
 
 class LLMService:

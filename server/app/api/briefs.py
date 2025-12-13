@@ -5,10 +5,10 @@ from sqlalchemy import select, func
 from rq import Queue
 from redis import Redis
 
-from app.database import get_session
-from app.config import settings
-from app.models import InternalBrief, GenerationJob, GenerationJobStatus
-from app.schemas import (
+from ..database import get_session
+from ..config import settings
+from ..models import InternalBrief, GenerationJob, GenerationJobStatus
+from ..schemas import (
     InternalBriefCreate,
     InternalBriefResponse,
     InternalBriefListResponse,

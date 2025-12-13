@@ -3,9 +3,9 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 
-from app.database import get_session
-from app.models import GeneratedContent, ApprovalStatus, Approval
-from app.schemas import (
+from ..database import get_session
+from ..models import GeneratedContent, ApprovalStatus, Approval
+from ..schemas import (
     GeneratedContentResponse,
     GeneratedContentListResponse,
     GeneratedContentCreate,

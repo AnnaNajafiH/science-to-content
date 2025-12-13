@@ -4,9 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from datetime import datetime
 
-from app.database import init_db, close_db, get_session
-from app.config import settings
-from app.api import trends, briefs, content, generation
+from .database import init_db, close_db, get_session
+from .config import settings
+from .api import trends, briefs, content, generation
 
 
 # Lifespan context manager for startup/shutdown

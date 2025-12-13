@@ -3,9 +3,9 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 
-from app.database import get_session
-from app.models import GenerationJob, InternalBrief, GeneratedContent
-from app.schemas import GenerationJobDetailResponse
+from ..database import get_session
+from ..models import GenerationJob, InternalBrief, GeneratedContent
+from ..schemas import GenerationJobDetailResponse
 
 router = APIRouter()
 

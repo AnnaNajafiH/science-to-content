@@ -1,6 +1,6 @@
 """Storage service for S3/MinIO file management."""
 import boto3
-from app.config import settings
+from server.app.config import settings
 
 
 class StorageService:

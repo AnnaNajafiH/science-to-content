@@ -10,8 +10,9 @@ class Settings(BaseSettings):
     # Redis
     REDIS_URL: str = "redis://localhost:6379/0"
 
+
     # OpenAI
-    OPENAI_API_KEY: str = ""
+    OPENAI_API_KEY: Optional[str] = None
     OPENAI_MODEL: str = "gpt-4"
     OPENAI_EMBEDDING_MODEL: str = "text-embedding-3-small"
 
@@ -54,3 +55,9 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+
+
+if settings.ENABLE_LLM and not settings.OPENAI_API_KEY:
+    raise RuntimeError(
+        "OPENAI_API_KEY is required when ENABLE_LLM=True"
+    )

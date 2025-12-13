@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 from sqlmodel import SQLModel
 from contextlib import asynccontextmanager
-from app.config import settings
+from server.app.config import settings
 
 
 # Async engine for PostgreSQL
@@ -32,8 +32,9 @@ async def get_session() -> AsyncSession:
 
 async def init_db():
     """Initialize database tables (for startup)."""
-    async with engine.begin() as conn:
-        await conn.run_sync(SQLModel.metadata.create_all)
+    if settings.ENVIRONMENT != "production":
+        async with engine.begin() as conn:
+            await conn.run_sync(SQLModel.metadata.create_all)
 
 
 async def close_db():
