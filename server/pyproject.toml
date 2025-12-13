@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "science-to-content-backend"
+version = "0.1.0"
+description = "AI-powered backend for transforming R&D science into Instagram content and internal briefs"
+requires-python = ">=3.10"
+authors = [
+    {name = "NahidNajafi", email = "nahid.najafi.h@gmail.com"},
+]
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+
+    "sqlalchemy>=2.0.0",
+    "sqlmodel>=0.0.14",
+    "psycopg2-binary>=2.9.0",
+    "alembic>=1.12.0",
+
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "python-dotenv>=1.0.0",
+
+    "redis>=5.0.0",
+    "rq>=1.15.0",
+
+    "openai>=1.3.0",
+    "httpx>=0.25.0",
+
+    "python-multipart>=0.0.6",
+    "email-validator>=2.1.0",
+    "PyJWT>=2.8.0",
+    "passlib[bcrypt]>=1.7.4",
+    "python-jose[cryptography]>=3.3.0",
+
+    "aiofiles>=23.2.0",
+    "boto3>=1.34.0",
+
+    "prometheus-client>=0.19.0",
+    "structlog>=23.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.12.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0",   
+    "types-redis>=4.6.0",
+]
+
+[tool.setuptools]
+packages = ["app"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]  # line-too-long handled by black
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
