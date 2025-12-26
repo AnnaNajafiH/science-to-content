@@ -1,0 +1,65 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# =========================
+# Virtual environments
+# =========================
+.venv/
+venv/
+
+# =========================
+# Environment variables / secrets
+# =========================
+.env
+.env.*
+
+# =========================
+# IDE / Editors
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# =========================
+# Testing / Linting / Caches
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# =========================
+# Environment variables / secrets
+# =========================
+.env
+.env.*
+.env.local
+.env.*.local
+
+# =========================
+# Databases
+# =========================
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# OS junk
+# =========================
+.DS_Store
+Thumbs.db
